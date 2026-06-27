@@ -20,34 +20,34 @@ import interior4 from '../assets/images/interior4.JPG';
 import interior5 from '../assets/images/interior5.JPG';
 
 // Coffee images (JPG - uppercase)
-import coffee1 from '../assets/images/coffee1.JPG';
-import coffee2 from '../assets/images/coffee2.JPG';
+import coffee1 from '../assets/images/coffee1.jpg';
+import coffee2 from '../assets/images/coffee2.jpg';
 
 // Matcha images (JPG - uppercase)
-import matcha1 from '../assets/images/matcha1.JPG';
-import matcha2 from '../assets/images/matcha2.JPG';
-import matcha3 from '../assets/images/matcha3.JPG';
-import matcha4 from '../assets/images/matcha4.JPG';
+import matcha1 from '../assets/images/matcha1.jpg';
+import matcha2 from '../assets/images/matcha2.jpg';
+import matcha3 from '../assets/images/matcha3.jpg';
+import matcha4 from '../assets/images/matcha4.jpg';
 
 // Cold drinks (JPG - uppercase)
-import colddrink1 from '../assets/images/colddrink1.JPG';
-import colddrink2 from '../assets/images/colddrink2.JPG';
-import colddrink3 from '../assets/images/colddrink3.JPG';
+import colddrink1 from '../assets/images/colddrink1.jpg';
+import colddrink2 from '../assets/images/colddrink2.jpg';
+import colddrink3 from '../assets/images/colddrink3.jpg';
 
 // Brunch images (JPG - uppercase)
-import brunch1 from '../assets/images/brunch1.JPG';
-import brunch2 from '../assets/images/brunch2.JPG';
-import brunch3 from '../assets/images/brunch3.JPG';
-import brunch4 from '../assets/images/brunch4.JPG';
-import brunch5 from '../assets/images/brunch5.JPG';
-import brunch6 from '../assets/images/brunch6.JPG';
-import brunch7 from '../assets/images/brunch7.JPG';
-import brunch8 from '../assets/images/brunch8.JPG';
-import brunch9 from '../assets/images/brunch9.JPG';
+import brunch1 from '../assets/images/brunch1.jpg';
+import brunch2 from '../assets/images/brunch2.jpg';
+import brunch3 from '../assets/images/brunch3.jpg';
+import brunch4 from '../assets/images/brunch4.jpg';
+import brunch5 from '../assets/images/brunch5.jpg';
+import brunch6 from '../assets/images/brunch6.jpg';
+import brunch7 from '../assets/images/brunch7.jpg';
+import brunch8 from '../assets/images/brunch8.jpg';
+import brunch9 from '../assets/images/brunch9.jpg';
 
 // Decorative (PNG - uppercase)
-import coffeeBeans from '../assets/images/coffee-beans.PNG';
-import cup from '../assets/images/cup.PNG';
+import coffeeBeans from '../assets/images/coffee-beans.png';
+import cup from '../assets/images/cup.png';
 
 // SVG Patterns (svg - lowercase)
 import archPatternBeige from '../assets/images/arch-pattern-whole-beige.svg';
