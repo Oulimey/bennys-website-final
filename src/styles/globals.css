@@ -1,0 +1,367 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   BENNY'S COFFEE - GLOBAL STYLES
+   Cozy, Warm, Mediterranean-Inspired Design
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ─── Color Palette ─────────────────────────────────────────────────────── */
+  --color-cream: #FAF7F2;
+  --color-cream-light: #FFFEF9;
+  --color-beige: #E8DFD0;
+  --color-beige-dark: #D4C4AE;
+  --color-brown: #8B7355;
+  --color-brown-light: #A08B6E;
+  --color-brown-dark: #6B5A45;
+  --color-gold: #C9A962;
+  --color-gold-light: #D4BA7A;
+  --color-gold-dark: #B89845;
+  --color-chocolate: #3D3229;
+  --color-chocolate-light: #4D4239;
+  --color-white: #FFFFFF;
+  --color-black: #1A1714;
+  
+  /* ─── Functional Colors ─────────────────────────────────────────────────── */
+  --color-background: var(--color-cream);
+  --color-background-alt: var(--color-beige);
+  --color-text: var(--color-chocolate);
+  --color-text-light: var(--color-brown);
+  --color-accent: var(--color-gold);
+  --color-primary: var(--color-brown);
+  
+  /* ─── Typography ────────────────────────────────────────────────────────── */
+  --font-display: 'Playfair Display', serif;
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-accent: 'Italiana', serif;
+  --font-body: 'Montserrat', sans-serif;
+  
+  /* ─── Spacing ───────────────────────────────────────────────────────────── */
+  --section-padding: 6rem 4rem;
+  --container-width: 1400px;
+  
+  /* ─── Transitions ───────────────────────────────────────────────────────── */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.4s ease;
+  --transition-slow: 0.6s ease;
+  --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* ─── Shadows ───────────────────────────────────────────────────────────── */
+  --shadow-soft: 0 4px 20px rgba(61, 50, 41, 0.08);
+  --shadow-medium: 0 8px 40px rgba(61, 50, 41, 0.12);
+  --shadow-strong: 0 16px 60px rgba(61, 50, 41, 0.16);
+  --shadow-gold: 0 4px 30px rgba(201, 169, 98, 0.2);
+  
+  /* ─── Border Radius (Arch-inspired) ─────────────────────────────────────── */
+  --radius-small: 4px;
+  --radius-medium: 8px;
+  --radius-large: 16px;
+  --radius-arch: 100px 100px 0 0;
+  --radius-arch-full: 50% 50% 0 0;
+}
+
+/* ─── Reset & Base ──────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Selection ─────────────────────────────────────────────────────────── */
+::selection {
+  background-color: var(--color-gold);
+  color: var(--color-white);
+}
+
+::-moz-selection {
+  background-color: var(--color-gold);
+  color: var(--color-white);
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-beige);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-brown-light);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brown);
+}
+
+/* ─── Typography ────────────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color-chocolate);
+}
+
+h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2.5rem); }
+h4 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
+
+p {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-text-light);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-fast);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+/* ─── Utility Classes ───────────────────────────────────────────────────── */
+.section__padding {
+  padding: var(--section-padding);
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.text-gold {
+  color: var(--color-gold);
+}
+
+.text-brown {
+  color: var(--color-brown);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-accent {
+  font-family: var(--font-accent);
+}
+
+/* ─── Arch Shape Utilities ──────────────────────────────────────────────── */
+.arch-shape {
+  border-radius: var(--radius-arch);
+}
+
+.arch-shape-full {
+  border-radius: var(--radius-arch-full);
+}
+
+/* ─── Section Label ─────────────────────────────────────────────────────── */
+.section__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: var(--font-accent);
+  font-size: 14px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+}
+
+.section__label::before,
+.section__label::after {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold));
+}
+
+.section__label::after {
+  background: linear-gradient(90deg, var(--color-gold), transparent);
+}
+
+/* ─── Section Title ─────────────────────────────────────────────────────── */
+.section__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 500;
+  color: var(--color-chocolate);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.section__title span {
+  color: var(--color-gold);
+  font-style: italic;
+}
+
+/* ─── Section Subtitle ──────────────────────────────────────────────────── */
+.section__subtitle {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--color-brown);
+  max-width: 600px;
+  line-height: 1.8;
+}
+
+/* ─── Buttons ───────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem 2.2rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--radius-small);
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: var(--color-brown);
+  color: var(--color-white);
+  border: 2px solid var(--color-brown);
+}
+
+.btn-primary:hover {
+  background: var(--color-chocolate);
+  border-color: var(--color-chocolate);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-brown);
+  border: 2px solid var(--color-brown);
+}
+
+.btn-outline:hover {
+  background: var(--color-brown);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+.btn-gold {
+  background: var(--color-gold);
+  color: var(--color-white);
+  border: 2px solid var(--color-gold);
+}
+
+.btn-gold:hover {
+  background: var(--color-gold-dark);
+  border-color: var(--color-gold-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold);
+}
+
+/* ─── Arch Divider ──────────────────────────────────────────────────────── */
+.arch-divider {
+  width: 60px;
+  height: 80px;
+  border: 2px solid var(--color-gold);
+  border-bottom: none;
+  border-radius: var(--radius-arch-full);
+  margin: 2rem auto;
+  position: relative;
+}
+
+.arch-divider::after {
+  content: '☕';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  background: var(--color-cream);
+  padding: 0 0.5rem;
+}
+
+/* ─── Gold Line ─────────────────────────────────────────────────────────── */
+.gold-line {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  margin: 1.5rem 0;
+}
+
+.gold-line--center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ─── Responsive ────────────────────────────────────────────────────────── */
+@media screen and (max-width: 1200px) {
+  :root {
+    --section-padding: 5rem 3rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --section-padding: 4rem 2rem;
+  }
+  
+  html {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    --section-padding: 3rem 1.5rem;
+  }
+  
+  html {
+    font-size: 14px;
+  }
+}

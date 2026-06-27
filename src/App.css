@@ -1,0 +1,34 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   BENNY'S COFFEE - App Styles
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--color-cream);
+  position: relative;
+  overflow-x: hidden;
+}
+
+main {
+  position: relative;
+}
+
+/* Page transition effects */
+.app::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-cream);
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.app.loading::before {
+  opacity: 1;
+}
