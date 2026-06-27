@@ -791,3 +791,142 @@
     min-height: 150px;
   }
 }
+
+.contact__branches {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.contact__branch-card {
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+  min-height: 280px;
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(246, 205, 138, 0.22), transparent 36%),
+    rgba(255, 248, 239, 0.7);
+  border: 1px solid rgba(120, 75, 39, 0.14);
+  box-shadow:
+    0 22px 54px rgba(92, 58, 28, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.contact__branch-arch {
+  position: absolute;
+  inset: 14px 14px auto;
+  height: 128px;
+  border: 1px solid rgba(120, 75, 39, 0.13);
+  border-bottom: none;
+  border-radius: 999px 999px 0 0;
+  pointer-events: none;
+}
+
+.contact__branch-arch::before {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(120, 75, 39, 0.07);
+  border-bottom: none;
+  border-radius: inherit;
+}
+
+.contact__branch-badge {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  margin-bottom: 18px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: #7a4a22;
+  background: rgba(185, 133, 70, 0.12);
+  border: 1px solid rgba(185, 133, 70, 0.2);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.contact__branch-card h3 {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 18px;
+  color: #2b1b12;
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.contact__branch-info {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact__branch-info div {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.contact__branch-info span {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  color: #fff8ef;
+  background: linear-gradient(135deg, #7a4a22, #b98546);
+  box-shadow: 0 10px 22px rgba(122, 74, 34, 0.16);
+}
+
+.contact__branch-info p {
+  margin: 0;
+  color: rgba(43, 27, 18, 0.68);
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.contact__branch-actions {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.contact__branch-actions a {
+  height: 42px;
+  padding: 0 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 1;
+  border-radius: 999px;
+  color: #fff8ef;
+  background: linear-gradient(135deg, #7a4a22, #b98546);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 900;
+  box-shadow: 0 12px 24px rgba(122, 74, 34, 0.16);
+  transition: all 0.25s ease;
+}
+
+.contact__branch-actions a:hover {
+  transform: translateY(-3px);
+}
+
+@media screen and (max-width: 760px) {
+  .contact__branches {
+    grid-template-columns: 1fr;
+  }
+}
