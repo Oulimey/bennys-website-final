@@ -18,14 +18,24 @@ import './Footer.css';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const address = contactInfo?.address || 'Iberia, Tangier';
-  const phone = contactInfo?.phone || '';
   const email = contactInfo?.email || '';
   const weekdays = contactInfo?.hours?.weekdays || '8:00 AM - 2:00 AM';
   const weekends = contactInfo?.hours?.weekends || '8:00 AM - 2:00 AM';
 
-  const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
-  const cleanPhone = phone.replace(/\s+/g, '');
+  const shops = [
+    {
+      id: 'iberia',
+      name: 'Iberia',
+      address: contactInfo?.address || 'Tangier Iberia',
+      phone: contactInfo?.phone || '+212 610 705 053',
+    },
+    {
+      id: 'malabata',
+      name: 'Malabata',
+      address: 'Tanger Noor Tower, Rte Malabata, Tangier',
+      phone: '+212 650 540 007',
+    },
+  ];
 
   const socialLinks = [
     {
@@ -44,6 +54,11 @@ const Footer = () => {
       icon: <FaTiktok />,
     },
   ];
+
+  const getCleanPhone = (phoneNumber) => phoneNumber.replace(/[^\d+]/g, '');
+
+  const getMapsLink = (address) =>
+    `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 
   return (
     <footer className="footer">
@@ -122,42 +137,45 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="footer__contact-card">
-            <span className="footer__card-label">Visit</span>
+          <div className="footer__contact-card footer__contact-card--wide">
+            <span className="footer__card-label">Locations</span>
 
-            <h4>Contact</h4>
+            <h4>Two Branches in Tangier</h4>
 
-            <ul className="footer__contact-list">
-              <li>
-                <span className="footer__contact-icon">
-                  <FiMapPin />
-                </span>
+            <ul className="footer__branches-list">
+              {shops.map((shop) => (
+                <li key={shop.id} className="footer__branch">
+                  <div className="footer__branch-head">
+                    <span>{shop.name}</span>
+                    <FiMapPin />
+                  </div>
 
-                <a href={mapsLink} target="_blank" rel="noopener noreferrer">
-                  {address}
-                </a>
-              </li>
+                  <a
+                    href={getMapsLink(shop.address)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="footer__branch-address"
+                  >
+                    {shop.address}
+                  </a>
 
-              {phone && (
-                <li>
-                  <span className="footer__contact-icon">
+                  <a
+                    href={`tel:${getCleanPhone(shop.phone)}`}
+                    className="footer__branch-phone"
+                  >
                     <FiPhone />
-                  </span>
-
-                  <a href={`tel:${cleanPhone}`}>{phone}</a>
+                    <span>{shop.phone}</span>
+                  </a>
                 </li>
-              )}
-
-              {email && (
-                <li>
-                  <span className="footer__contact-icon">
-                    <FiMail />
-                  </span>
-
-                  <a href={`mailto:${email}`}>{email}</a>
-                </li>
-              )}
+              ))}
             </ul>
+
+            {email && (
+              <a href={`mailto:${email}`} className="footer__email-link">
+                <FiMail />
+                <span>{email}</span>
+              </a>
+            )}
           </div>
 
           <div className="footer__hours-card">
@@ -186,7 +204,10 @@ const Footer = () => {
         <div className="footer__middle">
           <div className="footer__statement">
             <FiCoffee />
-            <span>Premium coffee, brunch, matcha, desserts, and cozy moments under Benny&apos;s arches.</span>
+            <span>
+              Premium coffee, brunch, matcha, desserts, and cozy moments under
+              Benny&apos;s arches.
+            </span>
           </div>
 
           <a href="#menu" className="footer__cta">
