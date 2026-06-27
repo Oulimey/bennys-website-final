@@ -6,8 +6,8 @@
 // ═══════════════════════════════════════════════════════════════════════════
 
 // Logo (PNG - uppercase)
-import logo from '../assets/images/logo.PNG';
-import logoLight from '../assets/images/logo-light.PNG';
+import logo from '../assets/images/logo.png';
+import logoLight from '../assets/images/logo-light.png';
 
 // Hero (JPG - uppercase)
 import heroBg from '../assets/images/hero-bg.JPG';
