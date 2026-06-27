@@ -25,34 +25,37 @@ const Contact = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
-  const address = contactInfo?.address || 'Iberia, Tangier';
-  const phone = contactInfo?.phone || '';
   const email = contactInfo?.email || '';
   const weekdays = contactInfo?.hours?.weekdays || '8:00 AM - 2:00 AM';
   const weekends = contactInfo?.hours?.weekends || '8:00 AM - 2:00 AM';
 
-  const cleanPhone = phone.replace(/\s+/g, '');
-  const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+  const shops = [
+    {
+      id: 'iberia',
+      name: "Benny's Iberia",
+      area: 'Tangier Iberia',
+      address: contactInfo?.address || 'Tangier Iberia',
+      phone: contactInfo?.phone || '+212 610 705 053',
+      badge: 'Iberia Branch',
+    },
+    {
+      id: 'malabata',
+      name: "Benny's Malabata",
+      area: 'Tangier Malabata',
+      address: 'Tanger Noor Tower, Rte Malabata, Tangier',
+      phone: '+212 650 540 007',
+      badge: 'Malabata Branch',
+    },
+  ];
+
+  const getCleanPhone = (phoneNumber) => phoneNumber.replace(/[^\d+]/g, '');
+
+  const getMapsLink = (address) =>
+    `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 
   const contactCards = [
     {
       id: 1,
-      icon: <FiMapPin />,
-      title: 'Location',
-      text: address,
-      link: mapsLink,
-      action: 'Open map',
-    },
-    {
-      id: 2,
-      icon: <FiPhone />,
-      title: 'Phone',
-      text: phone,
-      link: phone ? `tel:${cleanPhone}` : '#contact',
-      action: 'Call',
-    },
-    {
-      id: 3,
       icon: <FiMail />,
       title: 'Email',
       text: email,
@@ -60,7 +63,7 @@ const Contact = () => {
       action: 'Email',
     },
     {
-      id: 4,
+      id: 2,
       icon: <FiClock />,
       title: 'Hours',
       text: `Mon-Fri: ${weekdays}`,
@@ -135,8 +138,8 @@ const Contact = () => {
           </h2>
 
           <p className="contact__subtitle">
-            Drop by for coffee, brunch, desserts, or a calm moment under Benny&apos;s
-            warm arches.
+            Two Benny&apos;s coffee house locations in Tangier, ready for coffee,
+            brunch, desserts, and warm moments under the arches.
           </p>
         </motion.div>
 
@@ -156,22 +159,72 @@ const Contact = () => {
 
               <span className="contact__map-label">Find Benny&apos;s</span>
 
-              <h3>A warm coffee house corner in Tangier.</h3>
+              <h3>Choose your closest Benny&apos;s in Tangier.</h3>
 
               <p>
-                Use the map shortcut or contact details below to visit, call, or send
-                us a message.
+                Visit our Iberia or Malabata branch. Use the map shortcut below each
+                location to get directions.
               </p>
 
               <a
-                href={mapsLink}
+                href={getMapsLink(shops[0].address)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contact__map-btn"
               >
-                <span>Open in Maps</span>
+                <span>Open Iberia Map</span>
                 <FiArrowUpRight />
               </a>
+            </div>
+
+            <div className="contact__branches">
+              {shops.map((shop, index) => (
+                <motion.div
+                  key={shop.id}
+                  className="contact__branch-card"
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.55, delay: 0.24 + index * 0.1 }}
+                >
+                  <div className="contact__branch-arch" />
+
+                  <span className="contact__branch-badge">{shop.badge}</span>
+
+                  <h3>{shop.name}</h3>
+
+                  <div className="contact__branch-info">
+                    <div>
+                      <span>
+                        <FiMapPin />
+                      </span>
+                      <p>{shop.address}</p>
+                    </div>
+
+                    <div>
+                      <span>
+                        <FiPhone />
+                      </span>
+                      <p>{shop.phone}</p>
+                    </div>
+                  </div>
+
+                  <div className="contact__branch-actions">
+                    <a
+                      href={getMapsLink(shop.address)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span>Map</span>
+                      <FiArrowUpRight />
+                    </a>
+
+                    <a href={`tel:${getCleanPhone(shop.phone)}`}>
+                      <span>Call</span>
+                      <FiPhone />
+                    </a>
+                  </div>
+                </motion.div>
+              ))}
             </div>
 
             <div className="contact__info">
@@ -179,12 +232,10 @@ const Contact = () => {
                 <motion.a
                   key={card.id}
                   href={card.link}
-                  target={card.title === 'Location' ? '_blank' : undefined}
-                  rel={card.title === 'Location' ? 'noopener noreferrer' : undefined}
                   className="contact__info-card"
                   initial={{ opacity: 0, y: 24 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.55, delay: 0.28 + index * 0.08 }}
+                  transition={{ duration: 0.55, delay: 0.42 + index * 0.08 }}
                 >
                   <div className="contact__info-arch" />
 
